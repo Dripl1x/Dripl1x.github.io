@@ -11,11 +11,17 @@ body {
     background-color: #f0f0f0;
 }
 
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
 header {
     background: linear-gradient(135deg, #6f86d6, #48c6ef);
     color: white;
     padding: 20px 0;
-    text-align: center;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -53,12 +59,6 @@ nav ul li a:hover {
     color: #ffeb3b;
 }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
 .section {
     background-color: white;
     padding: 60px 20px;
@@ -80,13 +80,13 @@ nav ul li a:hover {
 h2 {
     font-size: 2em;
     margin-bottom: 20px;
-    text-align: center;
     color: #333;
 }
 
 p, li {
     margin-bottom: 10px;
     line-height: 1.5;
+    text-align: center;
 }
 
 .skills-list {
