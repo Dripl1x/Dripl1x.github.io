@@ -1,68 +1,92 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* Основные стили */
 body {
     font-family: 'Roboto', sans-serif;
-    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f8ff;
     color: #333;
-    background-color: #f0f0f0;
 }
-
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
+header .container p {
     text-align: center;
 }
 
+
+#typewriter::after {
+    content: '|';
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0%, 50% {
+        opacity: 1;
+    }
+    51%, 100% {
+        opacity: 0;
+    }
+}
+
+#backToTopBtn:hover {
+    background-color: #00bfff;
+    transform: translateY(-5px);
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Шапка */
 header {
-    background: linear-gradient(135deg, #6f86d6, #48c6ef);
+    background: linear-gradient(to right, #00bfff, #1e90ff);
     color: white;
-    padding: 20px 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    padding: 40px 0; /* Увеличено для большего наполнения */
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
+    margin: 0;
     font-size: 2.5em;
-    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 header p {
     font-size: 1.2em;
-    margin-bottom: 20px;
+    margin: 10px 0;
 }
 
+/* Навигация */
 nav ul {
     list-style: none;
     padding: 0;
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Центрируем пункты меню */
+    gap: 20px; /* Добавляем отступ между пунктами */
+    flex-wrap: wrap;
+    margin-top: 20px;
 }
 
 nav ul li {
-    margin: 0 15px;
+    /* Убираем display: inline; */
 }
 
 nav ul li a {
-    text-decoration: none;
     color: white;
+    text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s;
+    transition: color 0.3s ease;
+    padding: 10px 15px; /* Добавляем padding для увеличенной зоны клика */
+    border-radius: 5px;
 }
 
 nav ul li a:hover {
-    color: #ffeb3b;
+    color: #f0f8ff;
+    background-color: rgba(255, 255, 255, 0.2); /* Добавляем фон при наведении */
 }
 
+/* Секции */
 .section {
-    background-color: white;
-    padding: 60px 20px;
-    margin: 20px 0;
+    padding: 80px 20px; /* Увеличиваем отступы для более "наполенного" вида */
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.6s ease-in-out;
@@ -74,68 +98,215 @@ nav ul li a:hover {
 }
 
 .bg-light {
-    background-color: #e3f2fd;
+    background-color: #e6f7ff;
 }
 
 h2 {
     font-size: 2em;
-    margin-bottom: 20px;
-    color: #333;
+    color: #1e90ff;
+    border-bottom: 2px solid #00bfff;
+    display: inline-block;
+    padding-bottom: 10px;
+    margin-bottom: 40px; /* Добавляем отступ снизу */
 }
 
-p, li {
-    margin-bottom: 10px;
-    line-height: 1.5;
-    text-align: center;
+p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    text-align: center; /* Центрируем текст */
+    max-width: 800px; /* Ограничиваем ширину текста для лучшей читаемости */
+    margin: 0 auto; /* Центрируем абзацы */
 }
 
+/* Список навыков */
 .skills-list {
+    list-style: none;
+    padding: 0;
+    font-size: 1.2em;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px; /* Добавляем отступ между элементами */
+}
+
+.skills-list li {
+    background-color: #00bfff;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 25px;
+    /* Убираем display: inline-block; */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.skills-list li:hover {
+    transform: translateY(-5px);
+    background-color: #1e90ff;
+}
+
+/* Опыт работы */
+.job {
+    margin-bottom: 40px; /* Увеличиваем отступ снизу */
+    text-align: left; /* Выравниваем текст по левому краю */
+    max-width: 800px; /* Ограничиваем ширину для читаемости */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.job h3 {
+    color: #1e90ff;
+    margin-bottom: 10px;
+}
+
+.job span {
+    display: block;
+    font-style: italic;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.job p {
+    margin: 0;
+}
+
+/* Проекты */
+.project {
+    margin-bottom: 40px;
+    text-align: left; /* Выравниваем текст по левому краю */
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.project h3 {
+    color: #1e90ff;
+    margin-bottom: 10px;
+}
+
+.project p {
+    margin: 0 0 10px 0; /* Добавляем нижний отступ */
+}
+
+.project a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #1e90ff;
+    text-decoration: none;
+    border: 2px solid #1e90ff;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.project a:hover {
+    background-color: #1e90ff;
+    color: white;
+}
+
+/* Контакты */
+.contact-list {
     list-style: none;
     padding: 0;
     display: flex;
     justify-content: center;
-}
-
-.skills-list li {
-    background-color: #64b5f6;
-    color: white;
-    padding: 10px 20px;
-    margin: 5px;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-.job, .project {
-    margin-bottom: 20px;
-}
-
-footer {
-    background-color: #6f86d6;
-    color: white;
-    text-align: center;
-    padding: 15px 0;
-}
-
-footer p {
-    margin: 0;
-}
-
-.contact-list {
-    list-style: none;
-    padding: 0;
-    text-align: center;
+flex-direction: column;
+    align-items: center;
+    gap: 15px;
 }
 
 .contact-list li {
-    margin: 5px 0;
+    font-size: 1.2em;
 }
 
 .contact-list a {
-    color: #1e88e5;
+    color: #1e90ff;
     text-decoration: none;
     transition: color 0.3s;
 }
 
 .contact-list a:hover {
-    color: #0056b3;
+    text-decoration: underline;
+    color: #00bfff;
+}
+
+/* Подвал */
+footer {
+    background-color: #1e90ff;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+/* Анимации появления секций */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Добавляем анимацию к секциям */
+.section.visible {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+header .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center; /* Центрирует текст */
+}
+
+header .container p {
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    header {
+        padding: 30px 0;
+    }
+
+    .section {
+        padding: 60px 10px;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    .skills-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .skills-list li {
+        width: 80%;
+        text-align: center;
+    }
+
+    .job, .project {
+        text-align: center; /* Центрируем текст на мобильных устройствах */
+    }
+
+    .project a {
+        width: 100%;
+        text-align: center;
+    }
 }
