@@ -1,320 +1,101 @@
-/* Основные стили */
-body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f8ff;
-    color: #333;
-}
-header .container p {
-    text-align: center;
-}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evgeniy Kazarin CV</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+    <div class="container">
+        <h1>Евгений Казарин</h1>
+        <p>Студент 1 курса HSE SPB на ОП ПАДИИ</p>
+        <nav>
+            <ul>
+                <li><a href="#about">Обо мне</a></li>
+                <li><a href="#skills">Навыки</a></li>
+                <li><a href="#experience">Опыт</a></li>
+                <li><a href="#projects">Проекты</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
-/* Для заголовка */
-header p {
-    font-size: 1.5em; /* Можно увеличить размер текста для лучшей видимости */
-    text-align: center; /* Центрирует текст внутри родительского контейнера */
-    margin: 0 auto; /* Гарантирует центрирование */
-    padding: 10px; /* Добавляет небольшой внутренний отступ */
-    max-width: 800px; /* Ограничивает ширину блока */
-}
 
-#typewriter::after {
-    content: '|';
-    animation: blink 0.7s infinite;
-}
+    <section id="about" class="section">
+        <div class="container">
+            <h2>Обо мне</h2>
+            <p>Учился в МАОУ СОШ города Кемерово. Сдал хорошо ЕГЭ и поступил в Питерскую Вышку, планирую стать квалифицированным программистом и аналитиком.</p>
+        </div>
+    </section>
 
-@keyframes blink {
-    0%, 50% {
-        opacity: 1;
-    }
-    51%, 100% {
-        opacity: 0;
-    }
-}
+    <section id="skills" class="section bg-light">
+        <div class="container">
+            <h2>Навыки</h2>
+            <ul class="skills-list">
+                <li>C++</li>
+                <li>Python</li>
+            </ul>
+        </div>
+    </section>
 
-#backToTopBtn:hover {
-    background-color: #00bfff;
-    transform: translateY(-5px);
-}
+    <section id="experience" class="section">
+        <div class="container">
+            <h2>Опыт</h2>
+            <div class="job">
+                <h3>Куратор по математике</h3>
+                <span>Август - тек. время</span>
+                <p>Помощь людям по непонятным вопросам, связанных с ЕГЭ</p>
+            </div>
+        </div>
+    </section>
 
-.section.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
+    <section id="projects" class="section bg-light">
+        <div class="container">
+            <h2>Проекты</h2>
+            <div class="project">
+                <h3>Навык для Яндекс Алисы</h3>
+                <p>Анализирует качество воздуха в любом городе мира по голосовому или текстовому запросу, с помощью поиска совпадений в базе городов в соответствии с вводом пользователя</p>
+            </div>
+        </div>
+    </section>
 
-/* Шапка */
-header {
-    background: linear-gradient(to right, #00bfff, #1e90ff);
-    color: white;
-    padding: 40px 0; /* Увеличено для большего наполнения */
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Контакты</h2>
+            <ul class="contact-list">
+                <li>Telegram: <a href="https://t.me/Dripl1x">t.me/Dripl1x</a></li>
+                <li>Github: <a href="https://github.com/Dripl1x" target="_blank">https://github.com/Dripl1x</a></li>
+            </ul>
+        </div>
+    </section>
 
-header h1 {
-    margin: 0;
-    font-size: 2.5em;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-}
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Evgeniy Kazarin. Все права защищены.</p>
+        </div>
+    </footer>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const sections = document.querySelectorAll('.section');
 
-header p {
-    font-size: 1.2em;
-    margin: 10px 0;
-}
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting){
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
 
-/* Навигация */
-nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center; /* Центрируем пункты меню */
-    gap: 20px; /* Добавляем отступ между пунктами */
-    flex-wrap: wrap;
-    margin-top: 20px;
-}
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    });
+    </script>
 
-nav ul li {
-    /* Убираем display: inline; */
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-    padding: 10px 15px; /* Добавляем padding для увеличенной зоны клика */
-    border-radius: 5px;
-}
-
-nav ul li a:hover {
-    color: #f0f8ff;
-    background-color: rgba(255, 255, 255, 0.2); /* Добавляем фон при наведении */
-}
-
-/* Секции */
-.section {
-    padding: 80px 20px; /* Увеличиваем отступы для более "наполенного" вида */
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.6s ease-in-out;
-}
-
-.section.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.bg-light {
-    background-color: #e6f7ff;
-}
-
-h2 {
-    font-size: 2em;
-    color: #1e90ff;
-    border-bottom: 2px solid #00bfff;
-    display: inline-block;
-    padding-bottom: 10px;
-    margin-bottom: 40px; /* Добавляем отступ снизу */
-}
-
-p {
-    font-size: 1.1em;
-    line-height: 1.6;
-    text-align: center; /* Центрируем текст */
-    max-width: 800px; /* Ограничиваем ширину текста для лучшей читаемости */
-    margin: 0 auto; /* Центрируем абзацы */
-}
-
-/* Список навыков */
-.skills-list {
-    list-style: none;
-    padding: 0;
-    font-size: 1.2em;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px; /* Добавляем отступ между элементами */
-}
-
-.skills-list li {
-    background-color: #00bfff;
-    color: white;
-    padding: 10px 20px;
-    margin: 10px;
-    border-radius: 25px;
-    /* Убираем display: inline-block; */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s, background-color 0.3s;
-}
-
-.skills-list li:hover {
-    transform: translateY(-5px);
-    background-color: #1e90ff;
-}
-
-/* Опыт работы */
-.job {
-    margin-bottom: 40px; /* Увеличиваем отступ снизу */
-    text-align: left; /* Выравниваем текст по левому краю */
-    max-width: 800px; /* Ограничиваем ширину для читаемости */
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.job h3 {
-    color: #1e90ff;
-    margin-bottom: 10px;
-}
-
-.job span {
-    display: block;
-    font-style: italic;
-    color: #555;
-    margin-bottom: 10px;
-}
-
-.job p {
-    margin: 0;
-}
-
-/* Проекты */
-.project {
-    margin-bottom: 40px;
-    text-align: left; /* Выравниваем текст по левому краю */
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.project h3 {
-    color: #1e90ff;
-    margin-bottom: 10px;
-}
-
-.project p {
-    margin: 0 0 10px 0; /* Добавляем нижний отступ */
-}
-
-.project a {
-    display: inline-block;
-    margin-top: 10px;
-    color: #1e90ff;
-    text-decoration: none;
-    border: 2px solid #1e90ff;
-    padding: 8px 16px;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.project a:hover {
-    background-color: #1e90ff;
-    color: white;
-}
-
-/* Контакты */
-.contact-list {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-flex-direction: column;
-    align-items: center;
-    gap: 15px;
-}
-
-.contact-list li {
-    font-size: 1.2em;
-}
-
-.contact-list a {
-    color: #1e90ff;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.contact-list a:hover {
-    text-decoration: underline;
-    color: #00bfff;
-}
-
-/* Подвал */
-footer {
-    background-color: #1e90ff;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
-}
-
-footer p {
-    margin: 0;
-    font-size: 0.9em;
-}
-
-/* Анимации появления секций */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Добавляем анимацию к секциям */
-.section.visible {
-    animation: fadeInUp 0.6s ease-out forwards;
-}
-header .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center; /* Центрирует текст */
-}
-
-header .container p {
-    font-size: 1.2em;
-    margin-top: 10px;
-}
-
-/* Адаптивность */
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    header {
-        padding: 30px 0;
-    }
-
-    .section {
-        padding: 60px 10px;
-    }
-
-    h2 {
-        font-size: 1.8em;
-    }
-
-    .skills-list {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .skills-list li {
-        width: 80%;
-        text-align: center;
-    }
-
-    .job, .project {
-        text-align: center; /* Центрируем текст на мобильных устройствах */
-    }
-
-    .project a {
-        width: 100%;
-        text-align: center;
-    }
-}
+</body>
+</html>
