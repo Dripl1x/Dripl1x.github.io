@@ -6,6 +6,9 @@ body {
     background-color: #f0f8ff;
     color: #333;
 }
+header .container p {
+    text-align: center;
+}
 
 /* Контейнер */
 .container {
