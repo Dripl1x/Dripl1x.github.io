@@ -5,43 +5,45 @@ body {
     padding: 0;
     background-color: #f0f8ff;
     color: #333;
+    scroll-behavior: smooth; /* Плавный переход между секциями */
 }
 
 /* Контейнер */
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 40px; /* Увеличенные отступы */
 }
 
 /* Шапка */
 header {
     background: linear-gradient(to right, #00bfff, #1e90ff);
     color: white;
-    padding: 20px 0;
+    padding: 40px 0; /* Увеличенные отступы */
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
     margin: 0;
-    font-size: 2.5em;
+    font-size: 3em; /* Увеличенный размер */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 header p {
-    font-size: 1.2em;
+    font-size: 1.5em; /* Увеличенный шрифт */
     margin: 10px 0;
 }
 
 nav ul {
     list-style: none;
     padding: 0;
+    margin-top: 20px; /* Отступ снизу */
 }
 
 nav ul li {
     display: inline;
-    margin: 0 10px;
+    margin: 0 15px; /* Увеличенные отступы */
 }
 
 nav ul li a {
@@ -57,7 +59,7 @@ nav ul li a:hover {
 
 /* Секции */
 .section {
-    padding: 60px 0;
+    padding: 80px 0; /* Увеличенные отступы */
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.6s ease-in-out;
@@ -73,31 +75,46 @@ nav ul li a:hover {
 }
 
 h2 {
-    font-size: 2em;
+    font-size: 2.5em; /* Увеличенный размер заголовков */
     color: #1e90ff;
-    border-bottom: 2px solid #00bfff;
+    border-bottom: 3px solid #00bfff;
     display: inline-block;
-    padding-bottom: 10px;
+    padding-bottom: 15px;
+}
+
+/* Карточки */
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 40px; /* Отступ между карточками */
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 p {
-    font-size: 1.1em;
-    line-height: 1.6;
+    font-size: 1.2em; /* Увеличенный размер шрифта */
+    line-height: 1.8;
 }
 
 /* Список навыков */
 .skills-list {
     list-style: none;
     padding: 0;
-    font-size: 1.2em;
+    font-size: 1.3em; /* Увеличенный размер текста */
 }
 
 .skills-list li {
     background-color: #00bfff;
     color: white;
-    padding: 10px 20px;
+    padding: 12px 25px; /* Увеличенные отступы */
     margin: 10px 0;
-    border-radius: 25px;
+    border-radius: 30px;
     display: inline-block;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
@@ -120,10 +137,6 @@ p {
 }
 
 /* Проекты */
-.project {
-    margin-bottom: 40px;
-}
-
 .project h3 {
     color: #1e90ff;
     margin-bottom: 10px;
@@ -140,8 +153,8 @@ p {
 }
 
 .contact-list li {
-    font-size: 1.2em;
-    margin: 10px 0;
+    font-size: 1.3em;
+    margin: 15px 0; /* Увеличенные отступы */
 }
 
 .contact-list a {
@@ -158,13 +171,13 @@ footer {
     background-color: #1e90ff;
     color: white;
     text-align: center;
-    padding: 20px 0;
+    padding: 30px 0; /* Увеличенные отступы */
     box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
 }
 
 footer p {
     margin: 0;
-    font-size: 0.9em;
+    font-size: 1em;
 }
 
 /* Анимации появления секций */
@@ -174,6 +187,20 @@ footer p {
         transform: translateY(20px);
     }
     to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Плавная анимация для всех секций при прокрутке */
+@media screen and (min-width: 768px) {
+    .section {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .section.visible {
         opacity: 1;
         transform: translateY(0);
     }
