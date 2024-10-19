@@ -6,7 +6,18 @@ body {
     background-color: #f0f8ff;
     color: #333;
 }
+header .container p {
+    text-align: center;
+}
 
+/* Для заголовка */
+header p {
+    font-size: 1.5em; /* Можно увеличить размер текста для лучшей видимости */
+    text-align: center; /* Центрирует текст внутри родительского контейнера */
+    margin: 0 auto; /* Гарантирует центрирование */
+    padding: 10px; /* Добавляет небольшой внутренний отступ */
+    max-width: 800px; /* Ограничивает ширину блока */
+}
 
 #typewriter::after {
     content: '|';
@@ -257,15 +268,17 @@ footer p {
 .section.visible {
     animation: fadeInUp 0.6s ease-out forwards;
 }
-/* Для заголовка */
-header p {
-    font-size: 1.5em; /* Можно увеличить размер текста для лучшей видимости */
-    text-align: center; /* Центрирует текст внутри родительского контейнера */
-    margin: 0 auto; /* Гарантирует центрирование */
-    padding: 10px; /* Добавляет небольшой внутренний отступ */
-    max-width: 800px; /* Ограничивает ширину блока */
+header .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center; /* Центрирует текст */
 }
 
+header .container p {
+    font-size: 1.2em;
+    margin-top: 10px;
+}
 
 /* Адаптивность */
 @media (max-width: 768px) {
