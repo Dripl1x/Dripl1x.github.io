@@ -10,13 +10,7 @@ header .container p {
     text-align: center;
 }
 
-/* Контейнер */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center; /* Центрируем текст внутри контейнера */
-}
+
 #typewriter::after {
     content: '|';
     animation: blink 0.7s infinite;
@@ -265,6 +259,17 @@ footer p {
 /* Добавляем анимацию к секциям */
 .section.visible {
     animation: fadeInUp 0.6s ease-out forwards;
+}
+header .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center; /* Центрирует текст */
+}
+
+header .container p {
+    font-size: 1.2em;
+    margin-top: 10px;
 }
 
 /* Адаптивность */
