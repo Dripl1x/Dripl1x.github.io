@@ -6,33 +6,13 @@ body {
     background-color: #f0f8ff;
     color: #333;
 }
-header .container p {
-    text-align: center;
-}
 
-
-#typewriter::after {
-    content: '|';
-    animation: blink 0.7s infinite;
-}
-
-@keyframes blink {
-    0%, 50% {
-        opacity: 1;
-    }
-    51%, 100% {
-        opacity: 0;
-    }
-}
-
-#backToTopBtn:hover {
-    background-color: #00bfff;
-    transform: translateY(-5px);
-}
-
-.section.visible {
-    opacity: 1;
-    transform: translateY(0);
+/* Контейнер */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center; /* Центрируем текст внутри контейнера */
 }
 
 /* Шапка */
@@ -259,17 +239,6 @@ footer p {
 /* Добавляем анимацию к секциям */
 .section.visible {
     animation: fadeInUp 0.6s ease-out forwards;
-}
-header .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center; /* Центрирует текст */
-}
-
-header .container p {
-    font-size: 1.2em;
-    margin-top: 10px;
 }
 
 /* Адаптивность */
